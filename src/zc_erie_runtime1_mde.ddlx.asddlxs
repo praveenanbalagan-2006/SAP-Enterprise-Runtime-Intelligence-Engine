@@ -1,0 +1,102 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+  typeName: 'ERIE Runtime Request',
+  typeNamePlural: 'ERIE Runtime Requests',
+  title: {
+    value: 'RequestId'
+  }
+}
+
+annotate entity ZC_ERIE_RUNTIME1 with
+{
+
+  @UI.facet: [
+    {
+      id: 'RuntimeMonitoring',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'AI Runtime Monitoring Dashboard',
+      position: 10
+    }
+  ]
+
+  @UI.lineItem: [
+    { position: 10 },
+    {
+      position: 170,
+      type: #FOR_ACTION,
+      dataAction: 'TriggerAIAnalysis',
+      label: 'AI Analysis'
+    },
+    {
+      position: 180,
+      type: #FOR_ACTION,
+      dataAction: 'OptimizeExecution',
+      label: 'Optimize Execution'
+    }
+  ]
+  @UI.identification: [ { position: 10, label: 'Request ID' } ]
+  RequestId;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20, label: 'Department' } ]
+  Department;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30, label: 'Request Type' } ]
+  RequestType;
+
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40, label: 'Priority' } ]
+  Priority;
+
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50, label: 'Queue Load' } ]
+  QueueLoad;
+
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60, label: 'Delay Hours' } ]
+  DelayHours;
+
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70, label: 'Status' } ]
+  Status;
+
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80, label: 'Amount' } ]
+  Amount;
+
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90, label: 'Risk Level' } ]
+  RiskLevel;
+
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100, label: 'Runtime Prediction' } ]
+  RuntimePrediction;
+
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110, label: 'AI Confidence Score' } ]
+  AiConfidenceScore;
+
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120, label: 'Execution State' } ]
+  ExecutionState;
+
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130, label: 'Optimized Route' } ]
+  OptimizedRoute;
+
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140, label: 'Forecast Load' } ]
+  ForecastLoad;
+
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [ { position: 150, label: 'Anomaly Detected' } ]
+  AnomalyDetected;
+
+  @UI.lineItem: [ { position: 160 } ]
+  @UI.identification: [ { position: 160, label: 'Congestion Level' } ]
+  CongestionLevel;
+
+}

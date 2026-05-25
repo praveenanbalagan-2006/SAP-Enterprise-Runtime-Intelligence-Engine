@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for ERIE'
+define service ZUI_ERIE_RUNTIME {
+  expose ZC_ERIE_RUNTIME1;
+  expose ZC_ERIE_ANALYTICS;
+  expose ZC_ERIE_KPI;
+}

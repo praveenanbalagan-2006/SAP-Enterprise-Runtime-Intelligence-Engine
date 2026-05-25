@@ -1,0 +1,75 @@
+managed implementation in class zbp_i_erie_runtime unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_ERIE_RUNTIME
+persistent table zerie_workflow
+draft table zerie_wrk_draft
+lock master total etag UpdatedAt
+authorization master ( global )
+etag master UpdatedAt
+{
+  create;
+  update;
+  delete;
+
+  // Crucial for data insertion: forces the user to provide a Request ID on create
+  field ( mandatory : create ) RequestId;
+
+  // Administrative fields should be read-only during creation
+  field ( readonly ) CreatedBy, CreatedAt, UpdatedAt;
+
+  // --- Core Draft Lifecycle Actions (Fixed Syntax) ---
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+
+  // --- Draft State Preparation Block (Fixed Syntax) ---
+  draft determine action Prepare
+  {
+    validation ValidatePriority;
+  }
+
+  // --- Custom Business Actions ---
+  action OptimizeExecution;
+  action BalanceRuntimeLoad;
+  action AssignBackupApprover;
+  action EnableFastTrack;
+  action TriggerAIAnalysis;
+  action GenerateForecast;
+  action GenerateDemoData;
+
+  // --- Determinations and Validations ---
+  determination AutoOptimize on modify { field QueueLoad; }
+  validation ValidatePriority on save { field Priority; }
+
+  // --- Database Field Mapping ---
+  mapping for zerie_workflow
+  {
+    RequestId            = request_id;
+    Department           = department;
+    RequestType          = request_type;
+    Priority             = priority;
+    Amount               = amount;
+    Status               = status;
+    ExecutionState       = execution_state;
+    QueueLoad            = queue_load;
+    DelayHours           = delay_hours;
+    CongestionLevel      = congestion_level;
+    OptimizedRoute       = optimized_route;
+    AiRecommendation     = ai_recommendation;
+    RuntimeScore         = runtime_score;
+    RiskLevel            = risk_level;
+    NextBestAction       = next_best_action;
+    RuntimePrediction    = runtime_prediction;
+    AiConfidenceScore    = ai_confidence_score;
+    AlertMessage         = alert_message;
+    EventStatus          = event_status;
+    ForecastLoad         = forecast_load;
+    AnomalyDetected      = anomaly_detected;
+    CreatedBy            = created_by;
+    CreatedAt            = created_at;
+    UpdatedAt            = updated_at;
+  }
+}

@@ -1,0 +1,50 @@
+@Metadata.layer: #CORE
+
+annotate entity ZC_ERIE_KPI with
+{
+
+  @UI.lineItem: [
+    {
+      position: 10,
+      importance: #HIGH
+    }
+  ]
+  department;
+
+  @UI.lineItem: [
+    {
+      position: 20
+    }
+  ]
+  risk_level;
+
+  @UI.lineItem: [
+    {
+      position: 30
+    }
+  ]
+  queue_load;
+
+  @UI.lineItem: [
+    {
+      position: 40
+    }
+  ]
+  ai_confidence_score;
+
+  @UI.lineItem: [
+    {
+      position: 50
+    }
+  ]
+  forecast_load;
+
+  @UI.lineItem: [
+    {
+      position: 60
+    }
+  ]
+  anomaly_detected;
+  
+
+}

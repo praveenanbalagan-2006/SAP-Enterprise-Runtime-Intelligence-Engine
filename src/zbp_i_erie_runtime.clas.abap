@@ -1,0 +1,9 @@
+CLASS zbp_i_erie_runtime DEFINITION
+  PUBLIC
+  ABSTRACT
+  FINAL
+  FOR BEHAVIOR OF zi_erie_runtime.
+ENDCLASS.
+
+CLASS zbp_i_erie_runtime IMPLEMENTATION.
+ENDCLASS.
